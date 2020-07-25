@@ -11,7 +11,7 @@ height = 1000
 screen_dimension = (width, height)
 pg.init()
 screen = pg.display.set_mode(screen_dimension)
-pg.display.set_caption("Brownina Motion")
+pg.display.set_caption("Brownian Motion")
 number_of_atoms = 2000
 trail_length = 2000
 atoms = []
