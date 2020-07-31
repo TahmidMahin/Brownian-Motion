@@ -12,8 +12,8 @@ screen_dimension = (width, height)
 pg.init()
 screen = pg.display.set_mode(screen_dimension)
 pg.display.set_caption("Brownian Motion")
-number_of_atoms = 2000
-trail_length = 2000
+number_of_atoms = 10000
+trail_length = 8000
 atoms = []
 
 class Particle:
@@ -45,7 +45,7 @@ class Grain(Particle):
 	def __init__(self, x, y, v_x, v_y):
 		Particle.__init__(self, x, y, v_x, v_y)
 		self.r = 10
-		self.m = 1000
+		self.m = 20
 		self.color = blue
 	def collision_with_atom(self, atom):
 		d0 = ((self.x-atom.x)**2+(self.y-atom.y)**2)**0.5
@@ -69,7 +69,7 @@ def show_atoms(show):
 		atom.collision_with_wall()
 		atom.move()
 
-grain = Grain(width/2, height/2, np.random.randn(), np.random.randn())
+grain = Grain(width/2, height/2, 0.1*np.random.randn(), 0.1*np.random.randn())
 
 def show_grain(trail):
 	grain.show()
@@ -86,7 +86,7 @@ def initialize():
 	make_atoms()
 	running = True
 	show = True
-	trail = [(width/2, height/2)]
+	trail = [(width//2, height//2)]
 	while running:
 		for event in pg.event.get():
 			if event.type == pg.QUIT:
